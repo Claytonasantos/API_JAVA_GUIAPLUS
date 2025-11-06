@@ -1,0 +1,23 @@
+package br.com.fiap.main;
+
+import br.com.fiap.beans.Perfil;
+import br.com.fiap.dao.PerfilDAO;
+
+
+import javax.swing.*;
+import java.sql.SQLException;
+
+public class TesteDeletarPerfil {
+    static String texto (String t) {return JOptionPane.showInputDialog(t);}
+    static int inteiro (String i) {return Integer.parseInt(JOptionPane.showInputDialog(i));}
+    static double real (String r) {return Double.parseDouble(JOptionPane.showInputDialog(r));}
+
+    public static void main(String[] args) throws SQLException, ClassNotFoundException {
+        PerfilDAO perfilDAO = new PerfilDAO();
+        Perfil objPerfil = new Perfil();
+
+        objPerfil.setId_perfil(inteiro("Informe o ID do perfil que vai ser deletado"));
+
+        System.out.println(perfilDAO.deletarPerfil(objPerfil.getId_perfil()));
+    }
+}
